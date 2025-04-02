@@ -1,121 +1,135 @@
+# **λ** Lambda Toolkit
 
-# Lambda Toolkit
+A modular playground for lambda calculus evaluation, combinator logic, and CLI-powered expression tracing.
 
-A plug-and-play symbolic lambda calculus engine with full beta-reduction support, Church encodings, introspective validation, and reduction tracing. Designed for education, program synthesis, and integration with symbolic/LLM-based reasoning systems.
+Supports pretty-printing, lazy/eager reduction, trace generation, and built-in easter eggs.
 
----
+## Lambda Toolkit Documentation
+
+Version: 1.1.0
+
+## Overview
+
+Lambda Toolkit is a symbolic lambda calculus engine built with introspective evaluation, Church encodings, lazy reduction, and educational traceability. This toolkit supports recursive function modeling (via the Y combinator), semantic validation, and customizable expression registries for symbolic reasoning systems.
 
 ## Features
 
-- **Lambda Expression Engine**
-  - De Bruijn-indexed lambda calculus (`Var`, `Abs`, `App`)
-  - Beta-reduction with substitution and variable shifting
+- Lazy beta-reduction
+- Full De Bruijn indexing
+- Step-by-step evaluation traces
+- Expression registry (define/lookup)
+- Church encodings (booleans, numerals, arithmetic, recursion)
+- Validation (is_closed, is_normal_form, etc.)
+- Mermaid architecture diagram
+- Timeout mechanism with Garfield Easter egg
 
-- **Church Encoding Library**
-  - Booleans: `TRUE`, `FALSE`, `NOT`, `OR`, `IF`
-  - Numerals: `ZERO`, `ONE`, `TWO`, `SUCC`, `PLUS`, `MULT`, `PRED`, `ISZERO`
+## Getting Started
 
-- **Introspection Tools**
-  - `is_normal_form()`, `is_reducible()`, `is_closed()`, `has_free_variable()`
-
-- **Trace and Visualization**
-  - Step-by-step reduction tracing
-  - Human-readable pretty-printing
-
-- **Environment & Utilities**
-  - `define(name, expr)` and `lookup(name)` to store/retrieve expressions
-  - Registry serialization via JSON (`standard.json`)
-
-- **Fully Testable and Lintable**
-  - Unit tests with `unittest`
-  - Ruff formatting (`pyproject.toml` + optional pre-commit hooks)
-
----
-
-## Installation
-
+Install locally:
 ```bash
-git clone https://your-repo-url/lambda_toolkit.git
-cd lambda_toolkit
 pip install .
 ```
 
----
-
-## Example: SUCC 1 → 2
-
+Explore Church encodings:
 ```python
-from lambda_toolkit.core import App, reduce_lambda_verbose, pretty_improved
-from lambda_toolkit.core import church_succ, church_one
-
-expr = App(church_succ(), church_one())
-trace = reduce_lambda_verbose(expr)
-
-for label, step in trace:
-    print(f"{label}:
-{pretty_improved(step)}
-")
+from lambda_toolkit.core import lookup
+print(lookup("TWO"))
 ```
 
----
-
-## Structure
-
-```text
-lambda_toolkit/
-├── core.py               # Lambda engine + expression primitives
-├── validator.py          # Structural validators
-├── encodings/
-│   └── standard.json     # Predefined Church encodings
-├── __init__.py
-tests/
-├── test_core.py
-├── test_encodings.py
-├── test_validator.py
-examples/
-├── succ_one.py
-├── validator_usage.py
-setup.py
-README.md
-pyproject.toml
-.pre-commit-config.yaml
+Run validation:
+```python
+from lambda_toolkit.validator import is_normal_form
+print(is_normal_form(lookup("TWO")))
 ```
 
----
-
-## Mermaid Diagram
-
-See `docs/architecture.mmd` for an architecture diagram in Mermaid format.
-
----
+See example workflows in `examples/`.
 
 ## License
 
-Apache 2.0 – open, auditable, extensible.
+Apache 2.0
 
+## Example: Lazy Evaluation of IF
 
----
-
-## Development
-
-To run tests:
-```bash
-python -m unittest discover tests
+```lambda
+IF TRUE (λx.x) (λx. x x)
 ```
 
-To lint and autoformat:
-```bash
-ruff check . --fix
+Should evaluate to `λx.x` **without touching** the diverging branch `(λx. x x)`.
+
+### Reduction Trace:
+```
+Step 0:
+(  (    (      λx0.
+        λx1.
+          λx2.
+            (              (x0
+               x1)
+             x2)
+           λx0.
+        λx1.
+x0)
+       λx0.
+x0)
+   λx0.
+    (x0
+     x0))
+
+Step 1:
+(  (    λx0.
+      λx1.
+        (          (            λx2.
+              λx3.
+x2
+           x0)
+         x1)
+       λx0.
+x0)
+   λx0.
+    (x0
+     x0))
+
+Step 2:
+(  λx0.
+    (      (        λx1.
+          λx2.
+x1
+               λx1.
+x1)
+     x0)
+   λx0.
+    (x0
+     x0))
+
+Step 3:
+(  (    λx0.
+      λx1.
+x0
+       λx0.
+x0)
+   λx0.
+    (x0
+     x0))
+
+Step 4:
+(  λx0.
+    λx1.
+x1
+   λx0.
+    (x0
+     x0))
+
+Final:
+λx0.
+x0
 ```
 
-To contribute:
-- Fork the repo
-- Create a branch
-- Submit a pull request
+This shows that our evaluation strategy correctly **short-circuits evaluation** of unnecessary branches. Only `TRUE` and the identity were evaluated.
 
----
 
-## Version
+## CLI Extras
 
-**v1.0.0** — Lazy by default, Garfield approved.
+- `--trace`: Show reduction steps (see `example_generation.md`)
+- `monday`: Garfield's eternal return. See `easter_egg.md`.
+- `crowbar`: A nod to Half-Life. See `easter_egg.md`.
 
+For implementation details, check `core.md` and `nodes.md`.

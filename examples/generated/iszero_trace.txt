@@ -1,0 +1,45 @@
+Reduction trace for ISZERO applied to 1 args:
+
+Step 0:
+(  λx0.
+    (      (x0
+               λx1.
+          λx2.
+            λx3.
+x3)
+           λx1.
+        λx2.
+x1)
+   λx0.
+    λx1.
+x1)
+
+Step 1:
+(  (    λx0.
+      λx1.
+x1
+       λx0.
+      λx1.
+        λx2.
+x2)
+   λx0.
+    λx1.
+x0)
+
+Step 2:
+(  λx0.
+x0
+   λx0.
+    λx1.
+x0)
+
+Step 3:
+λx0.
+  λx1.
+x0
+
+Final:
+λx0.
+  λx1.
+x0
+

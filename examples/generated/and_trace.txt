@@ -1,0 +1,58 @@
+Reduction trace for AND applied to 2 args:
+
+Step 0:
+(  (    λx0.
+      λx1.
+        (          (x0
+           x1)
+                   λx2.
+            λx3.
+x3)
+       λx0.
+      λx1.
+x1)
+   λx0.
+    (x0
+     x0))
+
+Step 1:
+(  λx0.
+    (      (        λx1.
+          λx2.
+x2
+       x0)
+           λx1.
+        λx2.
+x2)
+   λx0.
+    (x0
+     x0))
+
+Step 2:
+(  (    λx0.
+      λx1.
+x1
+       λx0.
+      (x0
+       x0))
+   λx0.
+    λx1.
+x1)
+
+Step 3:
+(  λx0.
+x0
+   λx0.
+    λx1.
+x1)
+
+Step 4:
+λx0.
+  λx1.
+x1
+
+Final:
+λx0.
+  λx1.
+x1
+

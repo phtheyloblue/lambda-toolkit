@@ -1,0 +1,25 @@
+
+graph TD
+  A[User / LLM / DSL System] --> B[Expression Registry]
+  A --> C[Lambda Expression Constructor]
+  B --> D[Evaluator (beta_reduce)]
+  C --> D
+  D --> E[Reduction Trace Generator]
+  E --> F[Pretty Printer]
+  D --> G[Validator Module]
+  B --> G
+
+  subgraph "lambda_toolkit"
+    B[Expression Registry<br>(define, lookup)]
+    C[Constructor<br>(Var, Abs, App)]
+    D[Evaluator<br>(beta_reduce)]
+    E[Trace Generator<br>(reduce_lambda_verbose)]
+    F[Pretty Printer<br>(pretty_improved)]
+    G[Validator<br>(is_normal_form, is_closed)]
+  end
+
+  subgraph "encodings"
+    H[Church Encodings<br>(TRUE, ZERO, PLUS, ...)]
+  end
+
+  H --> B

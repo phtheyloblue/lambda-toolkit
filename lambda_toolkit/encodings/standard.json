@@ -1,0 +1,431 @@
+{
+  "TRUE": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "Var",
+        "index": 1
+      }
+    }
+  },
+  "FALSE": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "Var",
+        "index": 0
+      }
+    }
+  },
+  "NOT": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "Abs",
+        "body": {
+          "type": "App",
+          "func": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "index": 2
+            },
+            "arg": {
+              "type": "Var",
+              "index": 0
+            }
+          },
+          "arg": {
+            "type": "Var",
+            "index": 1
+          }
+        }
+      }
+    }
+  },
+  "OR": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "App",
+        "func": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "index": 1
+          },
+          "arg": {
+            "type": "Var",
+            "index": 1
+          }
+        },
+        "arg": {
+          "type": "Var",
+          "index": 0
+        }
+      }
+    }
+  },
+  "IF": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "Abs",
+        "body": {
+          "type": "App",
+          "func": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "index": 2
+            },
+            "arg": {
+              "type": "Var",
+              "index": 1
+            }
+          },
+          "arg": {
+            "type": "Var",
+            "index": 0
+          }
+        }
+      }
+    }
+  },
+  "ZERO": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "Var",
+        "index": 0
+      }
+    }
+  },
+  "ONE": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "App",
+        "func": {
+          "type": "Var",
+          "index": 1
+        },
+        "arg": {
+          "type": "Var",
+          "index": 0
+        }
+      }
+    }
+  },
+  "TWO": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "App",
+        "func": {
+          "type": "Var",
+          "index": 1
+        },
+        "arg": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "index": 1
+          },
+          "arg": {
+            "type": "Var",
+            "index": 0
+          }
+        }
+      }
+    }
+  },
+  "PLUS": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "Abs",
+        "body": {
+          "type": "Abs",
+          "body": {
+            "type": "App",
+            "func": {
+              "type": "App",
+              "func": {
+                "type": "Var",
+                "index": 3
+              },
+              "arg": {
+                "type": "Var",
+                "index": 1
+              }
+            },
+            "arg": {
+              "type": "App",
+              "func": {
+                "type": "App",
+                "func": {
+                  "type": "Var",
+                  "index": 2
+                },
+                "arg": {
+                  "type": "Var",
+                  "index": 1
+                }
+              },
+              "arg": {
+                "type": "Var",
+                "index": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "MULT": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "Abs",
+        "body": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "index": 2
+          },
+          "arg": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "index": 1
+            },
+            "arg": {
+              "type": "Var",
+              "index": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "PRED": {
+    "type": "Abs",
+    "body": {
+      "type": "Abs",
+      "body": {
+        "type": "Abs",
+        "body": {
+          "type": "App",
+          "func": {
+            "type": "App",
+            "func": {
+              "type": "App",
+              "func": {
+                "type": "Var",
+                "index": 2
+              },
+              "arg": {
+                "type": "Abs",
+                "body": {
+                  "type": "Abs",
+                  "body": {
+                    "type": "App",
+                    "func": {
+                      "type": "Var",
+                      "index": 0
+                    },
+                    "arg": {
+                      "type": "App",
+                      "func": {
+                        "type": "Var",
+                        "index": 1
+                      },
+                      "arg": {
+                        "type": "Var",
+                        "index": 2
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "arg": {
+              "type": "Abs",
+              "body": {
+                "type": "Var",
+                "index": 1
+              }
+            }
+          },
+          "arg": {
+            "type": "Abs",
+            "body": {
+              "type": "Var",
+              "index": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "ISZERO": {
+    "type": "Abs",
+    "body": {
+      "type": "App",
+      "func": {
+        "type": "App",
+        "func": {
+          "type": "Var",
+          "index": 0
+        },
+        "arg": {
+          "type": "Abs",
+          "body": {
+            "type": "Abs",
+            "body": {
+              "type": "Abs",
+              "body": {
+                "type": "Var",
+                "index": 0
+              }
+            }
+          }
+        }
+      },
+      "arg": {
+        "type": "Abs",
+        "body": {
+          "type": "Abs",
+          "body": {
+            "type": "Var",
+            "index": 1
+          }
+        }
+      }
+    }
+  },
+  "Y": {
+    "type": "Abs",
+    "body": {
+      "type": "App",
+      "func": {
+        "type": "Abs",
+        "body": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "index": 1
+          },
+          "arg": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "index": 0
+            },
+            "arg": {
+              "type": "Var",
+              "index": 0
+            }
+          }
+        }
+      },
+      "arg": {
+        "type": "Abs",
+        "body": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "index": 1
+          },
+          "arg": {
+            "type": "App",
+            "func": {
+              "type": "Var",
+              "index": 0
+            },
+            "arg": {
+              "type": "Var",
+              "index": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "THETA": {
+    "type": "App",
+    "func": {
+      "type": "Abs",
+      "body": {
+        "type": "Abs",
+        "body": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "index": 0
+          },
+          "arg": {
+            "type": "App",
+            "func": {
+              "type": "App",
+              "func": {
+                "type": "Var",
+                "index": 1
+              },
+              "arg": {
+                "type": "Var",
+                "index": 1
+              }
+            },
+            "arg": {
+              "type": "Var",
+              "index": 0
+            }
+          }
+        }
+      }
+    },
+    "arg": {
+      "type": "Abs",
+      "body": {
+        "type": "Abs",
+        "body": {
+          "type": "App",
+          "func": {
+            "type": "Var",
+            "index": 0
+          },
+          "arg": {
+            "type": "App",
+            "func": {
+              "type": "App",
+              "func": {
+                "type": "Var",
+                "index": 1
+              },
+              "arg": {
+                "type": "Var",
+                "index": 1
+              }
+            },
+            "arg": {
+              "type": "Var",
+              "index": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}

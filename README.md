@@ -1,6 +1,6 @@
 # **λ** Lambda Toolkit
 
-A modular playground for lambda calculus evaluation, combinator logic, and CLI-powered expression tracing.
+A toolkit for lambda calculus evaluation, combinator logic, and CLI-powered expression tracing.
 
 Supports pretty-printing, lazy/eager reduction, trace generation, and built-in easter eggs.
 
@@ -21,7 +21,6 @@ Lambda Toolkit is a symbolic lambda calculus engine built with introspective eva
 - Church encodings (booleans, numerals, arithmetic, recursion)
 - Validation (is_closed, is_normal_form, etc.)
 - Mermaid architecture diagram
-- Timeout mechanism with Garfield Easter egg
 
 ## Getting Started
 
